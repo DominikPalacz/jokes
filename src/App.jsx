@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import { testJoke } from "./actions";
+// import { fetchJoke } from "./actions";
 import Home from "./pages/Home";
 import Navigation from "./components/Navigation";
 
@@ -26,6 +27,7 @@ const App = function Component() {
   }, []);
 
   return (
+    // could not find react-redux context value; please ensure the component is wrapped in a <Provider>
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
