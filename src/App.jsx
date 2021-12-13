@@ -1,11 +1,12 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 import "./App.css";
 
-// const App = function Component({ dispatch, state }) {
 // eslint-disable-next-line react/prop-types
-const App = function Component({ dispatch, counter }) {
+const App = function Component({ dispatch }) {
+  const counter = useSelector(state => state)
   console.log("🚀 ~ file: App.jsx ~ line 39 ~ App ~ props", counter);
 
   return (
@@ -41,8 +42,4 @@ const App = function Component({ dispatch, counter }) {
   );
 };
 
-const mapStateToProps = (state) => ({
-  counter: state,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
