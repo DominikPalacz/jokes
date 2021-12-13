@@ -1,7 +1,7 @@
 /* eslint-disable default-param-last */
 const initialState = {
   value: 0,
-  jokes: [{ id: 0, text: "Ha ha" }],
+  dayJoke: "wait",
 };
 
 // console.log(`%c "State before:"`, `background: #772;`, initialState);
@@ -10,12 +10,24 @@ const initialState = {
 export default function rootReducer(state = initialState, action) {
   // The reducer normally looks at the action type field to decide what happens
   switch (action.type) {
-    case "counter/incremented":
-      return { ...state, value: state.value + 1 };
-    case "counter/decremented":
-      return { ...state, value: state.value - 1 };
+    case "joke/success":
+      return { ...state, dayJoke: action.payload.fact };
     default:
       return state;
   }
-  // return state;
 }
+
+// * updateVeryNestedField
+// * {
+// *   ...state,
+// *   first: {
+// *     ...state.first,
+// *     second: {
+// *       ...state.first.second,
+// *       [action.someId]: {
+// *         ...state.first.second[action.someId],
+// *         fourth: action.someValue
+// *       }
+// *     }
+// *   }
+// * }
