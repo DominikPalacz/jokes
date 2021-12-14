@@ -6,11 +6,13 @@ import {
   ADD_JOKE,
 } from "./constants";
 
-export const removeJoke = () => ({
-  type: REMOVE_JOKE,
-});
 export const addJoke = (data) => ({
   type: ADD_JOKE,
+  data, 
+});
+
+export const removeJoke = (data) => ({
+  type: REMOVE_JOKE,
   data, 
 });
 

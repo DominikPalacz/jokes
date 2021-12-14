@@ -16,7 +16,7 @@ const jokeMock1 = {
           clean: "0",
           racial: "0",
           date: "2021-12-14",
-          id: "gJDSuynRByTpbFZuGYt7mgeF",
+          id: "1JDSuynRByTpbFZuGYt7mgeF",
           text: "Knock Knock\r\n Who's there?\r\n Stu!\r\n Stu who?\r\n Stu late to ask questions!",
         },
       },
@@ -41,7 +41,7 @@ const jokeMock2 = {
           clean: "0",
           racial: "0",
           date: "2021-12-14",
-          id: "aJDSuynRByTpbFZuGYt7mgeF",
+          id: "2JDSuynRByTpbFZuGYt7mgeF",
           text: "22222222\r\n Who's there?\r\n Stu!\r\n Stu who?\r\n S22222222!",
         },
       },
@@ -53,8 +53,8 @@ const jokeMock2 = {
 const initialState = {
   jokesUserArchive: [],
   jokesDayArchive: [jokeMock1, jokeMock2],
-  // dayJoke: null,
-  dayJoke: jokeMock1,
+  dayJoke: null,
+  // dayJoke: jokeMock1,
   isLoading: false,
 };
 
@@ -75,6 +75,16 @@ export default function rootReducer(state = initialState, action) {
       };
     case "joke/request":
       return { ...state, isLoading: true };
+    case "joke/remove":
+      return {
+        ...state,
+        jokesUserArchive: state.jokesUserArchive.filter(
+          (item) => item.id !== action.data
+        ),
+        jokesDayArchive: state.jokesDayArchive.filter(
+          (item) => item.contents.jokes[0].joke.id !== action.data
+        ),
+      };
     default:
       return state;
   }

@@ -7,10 +7,14 @@ import "./Add.css";
 const Add = function Component() {
   const dispatch = useDispatch();
   const { jokesUserArchive } = useSelector((state) => state);
+  console.log(new Date().getMilliseconds())
   return (
     <Formik
       enableReinitialize
-      initialValues={{ text: "", id: jokesUserArchive.length }}
+      initialValues={{
+        text: "",
+        id: `${jokesUserArchive.length}-${new Date().getMilliseconds()}`,
+      }}
       validate={(values) => {
         const errors = {};
         if (!values.text) {
