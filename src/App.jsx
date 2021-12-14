@@ -5,7 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import { testJoke } from "./actions";
 // import { fetchJoke } from "./actions";
 import Home from "./pages/Home";
-import Navigation from "./components/Navigation";
+
+import Layout from "./components/Layout";
 
 import "./App.css";
 
@@ -28,14 +29,14 @@ const App = function Component() {
 
   return (
     // could not find react-redux context value; please ensure the component is wrapped in a <Provider>
-    <div className="App">
+    // <div className="App">
+    <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add" element={<Add />} />
         <Route path="/archives" element={<Archives />} />
       </Routes>
-      <Navigation />
-    </div>
+    </Layout>
   );
 };
 
