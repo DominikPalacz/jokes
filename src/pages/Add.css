@@ -10,7 +10,6 @@
 textarea {
   padding: 12px 20px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #f8f8f8;
   resize: none;
@@ -22,10 +21,10 @@ textarea {
   border: none;
   color: #ffffff;
   text-align: center;
-
+  padding: 10px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .button span {

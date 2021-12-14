@@ -1,10 +1,9 @@
 .wrapper-archives {
-  /* border: 1px solid red; */
   height: 100%;
   width: 320px;
   align-self: flex-start;
 }
 
 .wrapper-archives > .title {
-    padding: 0 20px;
+  padding: 0 20px;
 }

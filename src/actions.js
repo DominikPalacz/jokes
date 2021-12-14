@@ -8,12 +8,12 @@ import {
 
 export const addJoke = (data) => ({
   type: ADD_JOKE,
-  data, 
+  data,
 });
 
 export const removeJoke = (data) => ({
   type: REMOVE_JOKE,
-  data, 
+  data,
 });
 
 export const fetchJoke = () => (dispatch) => {

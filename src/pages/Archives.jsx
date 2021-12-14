@@ -1,21 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import Joke from "../components/Joke";
-import "./Archives.css"
+import Spiner from "../components/Spiner";
+
+import "./Archives.css";
 
 const Archives = function Component() {
-  const { jokesDayArchive, jokesUserArchive } = useSelector((state) => state);
-  // console.log("🚀 ~ file: Archives.jsx ~ line 7 ~ Archives ~ jokesUserArchive", jokesUserArchive)
+  const { jokesDayArchive, jokesUserArchive, isLoading } = useSelector((state) => state);
 
-  // eslint-disable-next-line no-console
-  // console.log(`%c "jokesDayArchive:"`, `background: #246;`, jokesDayArchive);
-
-  const userList = jokesUserArchive.map((e) => (
-    <Joke
-      key={e.id}
-      data={e}
-    />
-  ));
+  const userList = jokesUserArchive.map((e) => <Joke key={e.id} data={e} />);
 
   const archiveList = jokesDayArchive.map((e) => (
     <Joke
@@ -27,12 +21,12 @@ const Archives = function Component() {
   return (
     <>
       <section className="wrapper-archives">
-        <h2 className="title" >Your&apos;s jokes</h2>
+        <h2 className="title">Your&apos;s jokes</h2>
         {userList}
       </section>
       <section className="wrapper-archives">
-        <h2 className="title" >API&apos;s jokes</h2>
-        {archiveList}
+        <h2 className="title">API&apos;s jokes</h2>
+        {isLoading ? <Spiner /> : archiveList}
       </section>
     </>
   );

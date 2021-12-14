@@ -1,64 +1,11 @@
-/* eslint-disable default-param-last */
-const jokeMock1 = {
-  success: { total: 1 },
-  contents: {
-    jokes: [
-      {
-        description: "Joke of the day ",
-        language: "en",
-        background: "",
-        category: "jod",
-        date: "2021-12-14",
-        joke: {
-          title: "College light bulb",
-          lang: "en",
-          length: "106",
-          clean: "0",
-          racial: "0",
-          date: "2021-12-14",
-          id: "1JDSuynRByTpbFZuGYt7mgeF",
-          text: "Knock Knock\r\n Who's there?\r\n Stu!\r\n Stu who?\r\n Stu late to ask questions!",
-        },
-      },
-    ],
-    copyright: "2019-20 https://jokes.one",
-  },
-};
-const jokeMock2 = {
-  success: { total: 1 },
-  contents: {
-    jokes: [
-      {
-        description: "Joke of the day ",
-        language: "en",
-        background: "",
-        category: "jod",
-        date: "2021-12-14",
-        joke: {
-          title: "College light bulb",
-          lang: "en",
-          length: "106",
-          clean: "0",
-          racial: "0",
-          date: "2021-12-14",
-          id: "2JDSuynRByTpbFZuGYt7mgeF",
-          text: "22222222\r\n Who's there?\r\n Stu!\r\n Stu who?\r\n S22222222!",
-        },
-      },
-    ],
-    copyright: "2019-20 https://jokes.one",
-  },
-};
-
 const initialState = {
   jokesUserArchive: [],
-  jokesDayArchive: [jokeMock1, jokeMock2],
+  jokesDayArchive: [],
   dayJoke: null,
-  // dayJoke: jokeMock1,
   isLoading: false,
 };
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line default-param-last
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "joke/success":
@@ -68,13 +15,16 @@ export default function rootReducer(state = initialState, action) {
         jokesDayArchive: [...state.jokesDayArchive, action.payload],
         isLoading: false,
       };
+
     case "joke/add":
       return {
         ...state,
         jokesUserArchive: [...state.jokesUserArchive, action.data],
       };
+
     case "joke/request":
       return { ...state, isLoading: true };
+
     case "joke/remove":
       return {
         ...state,
@@ -82,9 +32,10 @@ export default function rootReducer(state = initialState, action) {
           (item) => item.id !== action.data
         ),
         jokesDayArchive: state.jokesDayArchive.filter(
-          (item) => item.contents.jokes[0].joke.id !== action.data
+          (item) => item.contents?.jokes[0]?.joke?.id !== action.data
         ),
       };
+
     default:
       return state;
   }

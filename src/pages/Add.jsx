@@ -1,13 +1,15 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
+
 import { addJoke } from "../actions";
+
 import "./Add.css";
 
 const Add = function Component() {
   const dispatch = useDispatch();
   const { jokesUserArchive } = useSelector((state) => state);
-  console.log(new Date().getMilliseconds())
+
   return (
     <Formik
       enableReinitialize
@@ -23,12 +25,9 @@ const Add = function Component() {
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        setTimeout(() => {
-          // alert(JSON.stringify(values, null, 2));
-          dispatch(addJoke(values));
-          setSubmitting(false);
-          resetForm();
-        }, 400);
+        dispatch(addJoke(values));
+        setSubmitting(false);
+        resetForm();
       }}
     >
       {({
