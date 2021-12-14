@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 
-import { testJoke } from "./actions";
-// import { fetchJoke } from "./actions";
+// import { testJoke } from "./actions";
+import { fetchJoke } from "./actions";
 
 import Home from "./pages/Home";
 import Add from "./pages/Add";
@@ -17,8 +17,8 @@ import "./App.css";
 const App = function Component() {
   const dispatch = useDispatch();
   useEffect(() => {
-    // dispatch(fetchJoke());
-    dispatch(testJoke());
+    dispatch(fetchJoke());
+    // dispatch(testJoke());
   }, []);
 
   return (
