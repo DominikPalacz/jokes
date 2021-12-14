@@ -6,7 +6,7 @@ import "./Layout.css";
 const Layout = function Component({ children }) {
   return (
     <>
-      <main className="App">{children}</main>
+      <main className="app">{children}</main>
       <Navigation />
     </>
   );

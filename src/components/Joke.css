@@ -1,0 +1,5 @@
+.joke-main {
+  border: 1px solid var(--main-color);
+  padding: 10px;
+  margin: 10px;
+}

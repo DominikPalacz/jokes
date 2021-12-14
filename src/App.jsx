@@ -2,23 +2,17 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
+
 import { testJoke } from "./actions";
 // import { fetchJoke } from "./actions";
+
 import Home from "./pages/Home";
+import Add from "./pages/Add";
+import Archives from "./pages/Archives";
 
 import Layout from "./components/Layout";
 
 import "./App.css";
-
-// eslint-disable-next-line react/prop-types
-
-const Add = function Component() {
-  return <h2>Add</h2>;
-};
-
-const Archives = function Component() {
-  return <h2>Archives</h2>;
-};
 
 const App = function Component() {
   const dispatch = useDispatch();

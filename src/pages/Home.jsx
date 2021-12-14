@@ -1,23 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Spiner from "../components/Spiner";
+import Joke from "../components/Joke";
 
 const Home = function Component() {
   const { isLoading } = useSelector((state) => state);
 
-  const appState = useSelector((state) => state.dayJokeMock); // !real or mock data
-  console.log("🚀 ~ file: Home.jsx ~ line 8 ~ Home ~ appState", appState);
+  const appState = useSelector((state) => state.dayJokeMock); // ! dayJoke/dayJokeMock - (real or mock data)
   const jokeText = isLoading || appState.dayJoke.contents.jokes[0].joke.text;
 
-  return isLoading ? (
-    <Spiner />
-  ) : (
-    <>
-      <h2>Home</h2>
-
-      <pre>{JSON.stringify(jokeText, null, 2)}</pre>
-    </>
-  );
+  return isLoading ? <Spiner /> : <Joke data={jokeText} />;
 };
 
 export default Home;
