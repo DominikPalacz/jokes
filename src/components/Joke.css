@@ -1,0 +1,17 @@
+.joke-main {
+  border: 1px solid var(--main-color);
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 4px;
+}
+
+.joke-main .delete-icon {
+  width: 9px;
+  position: absolute;
+  right: -5px;
+  top: -13px;
+  cursor: pointer;
+}

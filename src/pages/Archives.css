@@ -1,0 +1,9 @@
+.wrapper-archives {
+  height: 100%;
+  width: 320px;
+  align-self: flex-start;
+}
+
+.wrapper-archives > .title {
+  padding: 0 20px;
+}
