@@ -6,11 +6,12 @@ import "./Joke.css";
 
 import { ReactComponent as DeleteIcon } from "../img/times.svg";
 
-const Joke = function Component({ data, noDelate }) {
+const Joke = function Component({ data, noDelate, errMessage }) {
   const dispatch = useDispatch();
+
   return (
     <div className="joke-main">
-      {data?.text}
+      {data?.text || `${errMessage?.code} ${errMessage?.message}`}
       {noDelate || (
         <DeleteIcon
           onClick={() => {

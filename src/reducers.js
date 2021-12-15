@@ -3,11 +3,15 @@ const initialState = {
   jokesDayArchive: [],
   dayJoke: null,
   isLoading: false,
+  errorMessage: null,
 };
 
 // eslint-disable-next-line default-param-last
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case "joke/request":
+      return { ...state, isLoading: true };
+
     case "joke/success":
       return {
         ...state,
@@ -16,14 +20,14 @@ export default function rootReducer(state = initialState, action) {
         isLoading: false,
       };
 
+    case "joke/fail":
+      return { ...state, errorMessage: action.payload };
+
     case "joke/add":
       return {
         ...state,
         jokesUserArchive: [...state.jokesUserArchive, action.data],
       };
-
-    case "joke/request":
-      return { ...state, isLoading: true };
 
     case "joke/remove":
       return {

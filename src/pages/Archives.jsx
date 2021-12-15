@@ -7,7 +7,9 @@ import Spiner from "../components/Spiner";
 import "./Archives.css";
 
 const Archives = function Component() {
-  const { jokesDayArchive, jokesUserArchive, isLoading } = useSelector((state) => state);
+  const { jokesDayArchive, jokesUserArchive, isLoading } = useSelector(
+    (state) => state
+  );
 
   const userList = jokesUserArchive.map((e) => <Joke key={e.id} data={e} />);
 
